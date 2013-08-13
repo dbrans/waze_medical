@@ -1,0 +1,26 @@
+<div class="hero-unit">
+  <h1>ISIBU</h1>
+  <p>Enter your procedure and location.</p>
+  <input type="text" placeholder="Enter a procedure">
+  <input type="text" placeholder="Location">
+  <br>
+  <a class="btn" ng-click="booya()">Submit</a>
+</div>
+
+<h3>Results for "MRI Back" in "San Francisco".</h3>
+<table class="table">
+	<tr>
+		<th>User</th>
+		<th>Clinic</th>
+		<th>Retail (USD)</th>
+		<th>Out of pocket (USD)</th>
+		<th>Insurer</th>
+	</tr>
+	<tr ng-repeat="proc in data">
+		<td>{{proc.user}}</td>
+		<td>{{proc.medical_organization}}</td>
+		<td>{{proc.retail_price | currency}}</td>
+		<td>{{proc.retail_price - proc.insurance_reimbursement | currency}}
+		<td>{{proc.insurance_organization}}</td>
+	</tr>
+</table>
